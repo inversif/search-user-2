@@ -16,7 +16,7 @@ function App() {
   const[tables, setTables] = useState([]);
   const[loading, setLoading] = useState(true);
   const[page, setPage] = useState(1);
-  const[errorMsg, setErrorMsg] = useState(null);
+  // const[errorMsg, setErrorMsg] = useState(null);
 
   const [searchQuery, setSearchQuery] = useState("");
   const [genderQuery, setGenderQuery] = useState("");
