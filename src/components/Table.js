@@ -3,7 +3,7 @@ import React from 'react';
 const RenderTable = (props) => {
     // console.log('props: ', props.content[0]);
     return (
-        <table>
+        <table className="mt-5 table table-hover table-primary">
             <thead>
                 <tr>
                     <th>Username</th>
@@ -17,7 +17,7 @@ const RenderTable = (props) => {
                 {
                     props.content.map((object, index) => {
                         return (
-                            <tr key={index}>
+                            <tr key={index} className="table-light">
                                 <td>{object.login.username}</td>
                                 <td>{object.name.first} {object.name.last}</td>
                                 <td>{object.email}</td>

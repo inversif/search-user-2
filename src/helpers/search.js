@@ -1,6 +1,6 @@
 function searchKeyword(object, query) {
     console.log(object, query);
-    return object.filter((obj) => {
+    var res = object.filter((obj) => {
         var fullname = obj.name.first + " " + obj.name.last;
         if(obj.login.username.includes(query)
             || fullname.includes(query)
@@ -10,6 +10,8 @@ function searchKeyword(object, query) {
         }
         return null;
     });
+
+    return res;
 }
 
 function searchGender(object, g) {
