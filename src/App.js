@@ -2,6 +2,7 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
 
+import Header from './components/Header';
 import SearchBar from './components/SearchForm';
 import RenderTable from './components/Table';
 import Paginate from './components/Pagination';
@@ -70,6 +71,8 @@ function App() {
 
   return (
     <div className="container">
+        <Header title="Search User"></Header>
+        <hr></hr>
         <SearchBar 
           modifyTable={getSearchResult} 
           content={tables}
