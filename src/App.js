@@ -66,7 +66,7 @@ function App() {
 
   useEffect(() => {
     fetchData(url);
-  }, []);
+  }, [url]);
 
   return (
     <div className="container">
