@@ -6,7 +6,9 @@ const RenderTable = (props) => {
         <table className="mt-5 table table-hover table-primary">
             <thead>
                 <tr>
-                    <th>Username</th>
+                    <th 
+                        // onClick={() => props.sortTable('asc', 'email')}
+                    >Username</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Gender</th>

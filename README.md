@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# Search User README
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Foreword
+This is an example of a README. While I had misread and assumed that the written test is to be submitted the same day as the coding test. The application submitted as part of the test is meant to get some data from a site called [randomuser.me] [RandomUser]
 
-## Available Scripts
+## Tech Used
 
-In the project directory, you can run:
+The Search User Application uses these technology below:
 
-### `npm start`
+- [Twitter Bootstrap] - Great UI boilerplate for modern web apps
+- [node.js] - Evented I/O for the backend
+- [npm] - Package Manager
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The app requires [Node.js](https://nodejs.org/) >= 14.0.0 and [npm](npm) >= 5.6.0 to run React properly.
 
-### `npm test`
+Once the pre-requisites have been fulfilled. Proceed by installing the dependencies and start the server.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```sh
+cd search-user
+npm i
+npm start
+```
+A browser should open up with the application
 
-### `npm run build`
+## Plugins
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The Search User app does not necessarily require a plugin to be manually (or automatically through npm) to be installed. However this section is to let the user know that such libraries are used.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+| Other Libraries | README |
+| ------ | ------ |
+| Bootstrap | [Twitter Bootstrap] |
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Gist of the Application
 
-### `npm run eject`
+The application will fetch user data that it got from [randomuser.me] [RandomUser]. It then saves it onto a local variable so data persist. The user can then search for keyword (username, name, email, and registered date) and will project the result onto the table if it finds the query.
+It can also search users based on provided gender. For the sake of brevity, the search will be limited to Male and Female.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## License
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+MIT
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Free Software, Hell Yeah!**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen.)
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+   [node.js]: <http://nodejs.org>
+   [Twitter Bootstrap]: <http://twitter.github.com/bootstrap/>
+   [RandomUser]: https://randomuser.me/
+   [npm]: https://www.npmjs.com/
