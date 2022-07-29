@@ -11,6 +11,7 @@ const SearchBar = (props) => {
 
     const handleGenderQuery = (e) => {
         setGenderQuery(e.target.value);
+        props.modifyUrl("&gender=" + e.target.value);
         props.modifyTable(searchGender(props.content, genderQuery));
     }
 
@@ -20,12 +21,16 @@ const SearchBar = (props) => {
 
     const querySearch = (e) => {
         e.preventDefault();
+        props.modifyUrl("&keyword=" + searchQuery);
         props.modifyTable(searchKeyword(props.content, searchQuery));
         resetSearchQuery();
     }
 
     const resetFilter = (e) => {
-        // e.preventDefault();
+        e.preventDefault();
+        setGenderQuery("");
+        setSearchQuery("");
+        props.modifyUrl("reset");
         props.modifyTable(props.content);
     }
 
@@ -62,7 +67,7 @@ const SearchBar = (props) => {
             </div>
             <div className="col col-2 form-group">
                 <div>
-                  <label>Gender</label>
+                  <label></label>
                 </div>
                 <div>
                 <button onClick={resetFilter} type="submit" className="btn btn-primary">

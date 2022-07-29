@@ -10,7 +10,7 @@ import Paginate from './components/Pagination';
 
 const TOTAL_PER_PAGE = 10;
 const NUMBER_OF_QUERIES = 30;
-const url = 'https://randomuser.me/api/?results='+NUMBER_OF_QUERIES;
+// const url = 'https://randomuser.me/api/?results='+NUMBER_OF_QUERIES;
 
 function App() {
   const[tables, setTables] = useState([]);
@@ -19,8 +19,20 @@ function App() {
   // const[errorMsg, setErrorMsg] = useState(null);
   const [sortField, setSortField] = useState("");
   const [order, setOrder] = useState("asc");
+  const [url, setUrl] = useState('https://randomuser.me/api/?results='+NUMBER_OF_QUERIES);
+
+  const fetchData = (u) => {
+    fetch(u)
+      .then(resp => resp.json())
+      .then(respJson => {
+        setTables(respJson.results);
+        setLoading(false);
+      });
+  }
 
   const getSearchResult = (t) => {
+    // console.log(url + eUrl)
+    fetchData(url);
     setTables(t);
   }
 
@@ -28,45 +40,44 @@ function App() {
     setPage(pageNum); 
   }
 
-  // const handleSorting = (sortField, sortOrder, col) => {
-  //   if (sortField) {
-  //    const sorted = [...tables].sort((a, b) => {
-  //     console.log(sortField, sortOrder);
-  //     console.log(a['login']['username'])
-  //     // return (
-  //     //  a[sortField].toString().localeCompare(b[sortField].toString(), "en", {
-  //     //   numeric: true,
-  //     //  }) * (sortOrder === "asc" ? 1 : -1)
-  //     // );
-  //    });
-  //    setTables(sorted);
-  //   }
-  //  };
+  const mutateUrl = (eUrl="") => {
+    if(eUrl === "reset") { 
+      setUrl('https://randomuser.me/api/?results='+NUMBER_OF_QUERIES);
+      fetchData(url);
+    } else { 
+      setUrl(url + eUrl);
+      fetchData(url);
+    }
+  }
 
-  // const handleSortingChange = (accessor, col) => {
-  //   const sortOrder =
-  //     accessor === sortField && order === "asc" ? "desc" : "asc";
-  //   setSortField(accessor);
-  //   setOrder(sortOrder);
-  //   handleSorting(accessor, sortOrder, col);
-  //  };
+  const handleSorting = (sortField, sortOrder) => {
+    console.log(sortField, sortOrder);
+    mutateUrl("&sortBy=" + sortField + "&sortOrder" + sortOrder);
+   };
+
+  const handleSortingChange = (accessor) => {
+    console.log(accessor);
+    const sortOrder =
+      accessor === sortField && order === "asc" ? "desc" : "asc";
+    setSortField(accessor);
+    setOrder(sortOrder);
+    handleSorting(accessor, sortOrder);
+   };
 
   useEffect(() => {
-    fetch(url)
-      .then(resp => resp.json())
-      .then(respJson => {
-        setTables(respJson.results);
-        setLoading(false);
-      });
+    fetchData(url);
   }, []);
 
   return (
     <div className="container">
-        <SearchBar modifyTable={getSearchResult} content={tables}></SearchBar>
+        <SearchBar 
+          modifyTable={getSearchResult} 
+          content={tables}
+          modifyUrl={mutateUrl}></SearchBar>
         {loading 
           ? <span>Loading...</span> 
           : <RenderTable 
-                // sortTable={handleSortingChange}
+                sortTable={handleSortingChange}
                 content={tables.slice(page*TOTAL_PER_PAGE - TOTAL_PER_PAGE, page*TOTAL_PER_PAGE)}></RenderTable>}
         <Paginate
           perPage={TOTAL_PER_PAGE}

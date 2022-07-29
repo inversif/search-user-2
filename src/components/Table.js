@@ -7,12 +7,20 @@ const RenderTable = (props) => {
             <thead>
                 <tr>
                     <th 
-                        // onClick={() => props.sortTable('asc', 'email')}
+                        onClick={() => props.sortTable('username') }
                     >Username</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Gender</th>
-                    <th>Registered Date</th>
+                    <th
+                        onClick={() => props.sortTable('name') }
+                    >Name</th>
+                    <th
+                        onClick={() => props.sortTable('email') }
+                    >Email</th>
+                    <th
+                        onClick={() => props.sortTable('gender') }
+                    >Gender</th>
+                    <th
+                        onClick={() => props.sortTable('registed_date') }
+                    >Registered Date</th>
                 </tr>
             </thead>
             <tbody>
