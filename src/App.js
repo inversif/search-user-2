@@ -28,28 +28,28 @@ function App() {
     setPage(pageNum); 
   }
 
-  const handleSorting = (sortField, sortOrder, col) => {
-    if (sortField) {
-     const sorted = [...tables].sort((a, b) => {
-      console.log(sortField, sortOrder);
-      console.log(a['login']['username'])
-      // return (
-      //  a[sortField].toString().localeCompare(b[sortField].toString(), "en", {
-      //   numeric: true,
-      //  }) * (sortOrder === "asc" ? 1 : -1)
-      // );
-     });
-     setTables(sorted);
-    }
-   };
+  // const handleSorting = (sortField, sortOrder, col) => {
+  //   if (sortField) {
+  //    const sorted = [...tables].sort((a, b) => {
+  //     console.log(sortField, sortOrder);
+  //     console.log(a['login']['username'])
+  //     // return (
+  //     //  a[sortField].toString().localeCompare(b[sortField].toString(), "en", {
+  //     //   numeric: true,
+  //     //  }) * (sortOrder === "asc" ? 1 : -1)
+  //     // );
+  //    });
+  //    setTables(sorted);
+  //   }
+  //  };
 
-  const handleSortingChange = (accessor, col) => {
-    const sortOrder =
-      accessor === sortField && order === "asc" ? "desc" : "asc";
-    setSortField(accessor);
-    setOrder(sortOrder);
-    handleSorting(accessor, sortOrder, col);
-   };
+  // const handleSortingChange = (accessor, col) => {
+  //   const sortOrder =
+  //     accessor === sortField && order === "asc" ? "desc" : "asc";
+  //   setSortField(accessor);
+  //   setOrder(sortOrder);
+  //   handleSorting(accessor, sortOrder, col);
+  //  };
 
   useEffect(() => {
     fetch(url)
@@ -65,7 +65,8 @@ function App() {
         <SearchBar modifyTable={getSearchResult} content={tables}></SearchBar>
         {loading 
           ? <span>Loading...</span> 
-          : <RenderTable sortTable={handleSortingChange}
+          : <RenderTable 
+                // sortTable={handleSortingChange}
                 content={tables.slice(page*TOTAL_PER_PAGE - TOTAL_PER_PAGE, page*TOTAL_PER_PAGE)}></RenderTable>}
         <Paginate
           perPage={TOTAL_PER_PAGE}
